@@ -23,12 +23,7 @@ export default function Start() {
       <SubHeader>
         개발자가 흔히 접하는 상황에 따라서 MBTI를 알아 봅시다!
       </SubHeader>
-      <Button
-        text="테스트 시작"
-        mainColor="#fae243"
-        subColor="#fa9f1a"
-        hoverColor="#faf000"
-      />
+      <OrangeButton text="테스트 시작" />
     </>
   );
 }
