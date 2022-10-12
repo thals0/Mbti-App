@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import GlobalStyle from './components/GlobalStyle';
 import Start from './components/Start';
 
 const Main = styled.main`
@@ -12,9 +13,12 @@ const Main = styled.main`
 
 function App() {
   return (
-    <Main>
-      <Start />
-    </Main>
+    <>
+      <GlobalStyle />
+      <Main>
+        <Start />
+      </Main>
+    </>
   );
 }
 
