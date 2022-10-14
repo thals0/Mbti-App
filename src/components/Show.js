@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import OrangeButton from './OrangeButton';
 import { reset } from '../store/modules/mbti';
+import { useEffect } from 'react';
 
 const Header = styled.p`
   font-size: 3em;
@@ -27,6 +28,22 @@ export default function Show() {
   const result = useSelector((state) => state.mbti.mbtiResult);
   const explaination = useSelector((state) => state.mbti.explaination[result]);
   const dispatch = useDispatch();
+
+  // 마지막 페이지가 나왔을 때 한번만! 참여 인원 + 1
+  useEffect(() => {
+    async function sendData() {
+      // cors 때문에 3001 저렇게 데이터 요청이 가능한 것
+      const resInc = await fetch('http://localhost:3001/data/inccounts', {
+        method: 'POST',
+      });
+      if (resInc.status === 200) {
+        console.log(await resInc.json());
+      } else {
+        throw new Error('통신 이상');
+      }
+    }
+    sendData();
+  }, []);
 
   return (
     <>
