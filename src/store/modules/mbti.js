@@ -1,6 +1,6 @@
 // 초기 상태 설정
 const initState = {
-  mbitResult: '',
+  mbtiResult: '',
   page: 0,
   survey: [
     {
