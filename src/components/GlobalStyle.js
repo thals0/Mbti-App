@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
 
   body{
     font-family: 'ONE-Mobile-POP', "Arial", sans-serif;
-    padding-top: 1em;
+    /* padding-top: 1em; */
     white-space: pre-wrap;
   }
 
