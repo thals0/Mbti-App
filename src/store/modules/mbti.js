@@ -61,8 +61,8 @@ const initState = {
     },
   ],
   // 배열을 사용하지 않고 객체안에 객체를 넣은 이유
-  // 배열안에 find어쩌구로 찾을 필요 없이 explaination[mbtiResult] 이렇게 계산 없이 찾을 수 있음
-  explaination: {
+  // 배열안에 find어쩌구로 찾을 필요 없이 explanation[mbtiResult] 이렇게 계산 없이 찾을 수 있음
+  explanation: {
     ESTJ: {
       text: '무리한 개발 일정만 아니라면 일정을 철저하게 지킬 당신의 MBTI 는!',
       img: '/images/estj.jpg',
@@ -130,10 +130,19 @@ const initState = {
   },
 };
 
-// 액션 타입 설정
+// 빈 값 전달
+const initStateEmpty = {
+  mbtiResult: '',
+  page: 0,
+  survey: [],
+  explanation: {},
+};
+
+// 액션 type 설정
 const NEXT = 'mbti/NEXT';
 const CHECK = 'mbti/CHECK';
 const RESET = 'mbti/RESET';
+const INIT = 'mbti/INIT'; // initData 연결
 
 // 액션 생성 함수
 // payload -> 선택에 다른 결과 값 result 전달 필요
@@ -154,9 +163,23 @@ export function reset() {
   };
 }
 
+export function init(data) {
+  return {
+    type: INIT,
+    payload: data,
+  };
+}
+
 // Reducer
-export default function mbti(state = initState, action) {
+export default function mbti(state = initStateEmpty, action) {
   switch (action.type) {
+    case INIT:
+      console.log('@', action.payload);
+      return {
+        ...state,
+        survey: action.payload.survey,
+        explanation: action.payload.explanation,
+      };
     case CHECK:
       return {
         ...state,
