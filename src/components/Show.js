@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 const Header = styled.p`
   font-size: 3em;
 `;
-const Explaination = styled.p`
+const Explanation = styled.p`
   font-size: 1.5em;
   color: #777;
 `;
@@ -26,7 +26,7 @@ const AdditionalImg = styled.img`
 
 export default function Show() {
   const result = useSelector((state) => state.mbti.mbtiResult);
-  const explaination = useSelector((state) => state.mbti.explaination[result]);
+  const explanation = useSelector((state) => state.mbti.explanation[result]);
   const dispatch = useDispatch();
 
   // 마지막 페이지가 나왔을 때 한번만! 참여 인원 + 1
@@ -48,10 +48,10 @@ export default function Show() {
   return (
     <>
       <Header>당신의 개발자 MBTI 결과는?</Header>
-      <Explaination>{explaination.text}</Explaination>
+      <Explanation>{explanation.text}</Explanation>
       <Result>{result}</Result>
       <Additional>재미로 읽어보세요!</Additional>
-      <AdditionalImg src={explaination.img} alt="MBTI 팩폭" />
+      <AdditionalImg src={explanation.img} alt="MBTI 팩폭" />
       <OrangeButton text="다시 검사하기" clickEvent={() => dispatch(reset())} />
     </>
   );
