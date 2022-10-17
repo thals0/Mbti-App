@@ -21,6 +21,7 @@ function App() {
     <>
       <GlobalStyle />
       <Main>
+        {/* {console.log(survey)} */}
         {page === 0 ? (
           <Start />
         ) : page !== survey.length + 1 ? (
