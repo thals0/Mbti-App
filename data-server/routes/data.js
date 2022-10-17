@@ -16,4 +16,18 @@ router.post('/inccounts', (req, res) => {
   });
 });
 
+router.get('/survey', (req, res) => {
+  db.getSurvey((data) => {
+    // console.log(data);
+    res.send(data);
+  });
+});
+
+router.get('/explanation', (req, res) => {
+  db.getExplanation((data) => {
+    // console.log('설명 데이터', data);
+    res.send(data);
+  });
+});
+
 module.exports = router;
