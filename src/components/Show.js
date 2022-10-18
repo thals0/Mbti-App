@@ -33,7 +33,14 @@ export default function Show() {
   useEffect(() => {
     async function sendData() {
       // cors 때문에 3001 저렇게 데이터 요청이 가능한 것
-      const resInc = await fetch('http://localhost:3001/data/inccounts', {
+
+      // sql로 전달
+      // const resInc = await fetch('http://localhost:3001/data/inccounts', {
+      //   method: 'POST',
+      // });
+
+      // mongo로 post
+      const resInc = await fetch('http://localhost:3001/mongo/inccounts', {
         method: 'POST',
       });
       if (resInc.status === 200) {
