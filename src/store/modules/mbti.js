@@ -174,7 +174,7 @@ export function init(data) {
 export default function mbti(state = initStateEmpty, action) {
   switch (action.type) {
     case INIT:
-      console.log('@', action.payload);
+      // console.log('@', action.payload);
       return {
         ...state,
         survey: action.payload.survey,
